@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const db = require("./data.js");
+// const db = require("./data.js");
 const exBars = require("express-handlebars");
 const robosRoutes = require("./routes/robos.js");
 const workingRobosRoutes = require("./routes/workingRobos.js");
@@ -9,7 +9,7 @@ const app = express();
 const MongoClient = require("mongodb").MongoClient;
 
 // Connection URL
-var url = "mongodb://localhost:27017/return-to-robos";
+var url = "mongodb://localhost:27017/returnToRobos";
 
 // Uses handlebars as the engine
 app.engine("handlebars", exBars());

@@ -1,12 +1,13 @@
 const express = require("express");
 const routes = express.Router();
-const db = require("data.js");
+const db = require("../data.json");
+const app = express();
 
 routes.get("/", (req, res) => {
-  let collection = db.get().collection("return-to-robos");
+  var collection = db.get().collection("robots");
 
-  collection.find({}).toArray((err, robos) => {
-    res.render("home", { robos: robos});
+  collection.find({}).toArray((err, robots) => {
+    res.render("home", {returnToRobos: robots});
   });
 });
 
