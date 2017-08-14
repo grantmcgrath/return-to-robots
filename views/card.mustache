@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{name}}</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+  <header id="header">
+    <div class="title">
+      <a href="/"><h1>Robos Directory</h1></a>
+    </div>
+    <div class="links">
+      <a href=""><h3>Looking 4 Work</h3></a>
+      <a href=""><h3>Currently Employed</h3></a>
+    </div>
+  </header>
+
+  <section id="cardHolder">
+    <div class="profilePic">
+      <img src="{{avatar}}" alt="" />
+    </div>
+
+    <div class="contactInfo">
+      <h1 class="cardName">{{name}}</h1>
+      {{#address.city}}
+        <p>{{address.city}}, {{address.country}} |
+      {{/address.city}}
+      {{^address.city}}
+        <p>{{address.country}} |
+      {{/address.city}}
+        {{#job}}
+          {{job}}, {{company}}
+        {{/job}}
+        {{^job}}
+        <span class="noJob">Available for hire</span>
+        {{/job}}
+      </p>
+      <p class="cardContactInfo"><a href="mailto:{{email}}?Subject=Hello%20from%20{{name}}" target="_top">{{email}}</a> | {{phone}}</p>
+    </div>
+
+    <div class="eduSkills">
+      {{#university}}
+        <p class="university"><b>Education</b></p>
+      {{/university}}
+      {{^university}}
+      <!-- If no education is listed, nothing is shown -->
+      {{/university}}
+      <p class="skills"><b>Skills</b></p>
+    </div>
+
+    <div class="eduSkillsDetails">
+      {{#university}}
+        <p>{{university}}</p>
+      {{/university}}
+      {{^university}}
+      <!-- If no education is listed, nothing is shown -->
+      {{/university}}
+      {{#skills}}
+        <p class="skills">{{.}}</p>
+      {{/skills}}
+      {{^skills}}
+      <!-- If no skills are listed, nothing is shown -->
+      {{/skills}}
+    </div>
+  </section>
+</body>
+
+</html>
