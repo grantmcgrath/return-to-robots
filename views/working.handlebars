@@ -10,27 +10,27 @@
 <body>
   <header id="header">
     <div class="title">
-      <a href="/"><h1>Robos Directory</h1></a>
+      <a href="/"><h1>Working Robos</h1></a>
     </div>
     <div class="links">
-      <a href=""><h3>Looking 4 Work</h3></a>
-      <a href=""><h3>Currently Employed</h3></a>
+      <a href="/searching"><h3>Looking 4 Work</h3></a>
+      <a href="/employed"><h3>Currently Employed</h3></a>
     </div>
   </header>
 
   <section id="index">
     {{#robots}}
-      <div class="cards">
-        <a href="/{{username}}"><img src={{avatar}} class="avatar">
-      <h2>{{name}}</h2>
+      <!-- Displays only robots with jobs. -->
       {{#if job}}
+        <div class="cards">
+          <a href="/{{username}}"><img src={{avatar}} class="avatar">
+      <h2>{{name}}</h2>
       <p class="job">{{job}}, {{company}}</p>
-      {{else}}
-      <p class="noJob">Available for hire</p>
-      {{/if}}
     </a>
-      </div>
+        </div>
+      {{/if}}
     {{/robots}}
   </section>
+</body>
 
 </html>

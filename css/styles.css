@@ -59,7 +59,7 @@ a {
 
 #index {
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-evenly;*/
   align-content: flex-start;
   flex-wrap: wrap;
   padding: 10px;
@@ -92,7 +92,7 @@ a {
 }
 
 #header {
-  width: 900px;
+  max-width: 900px;
 }
 
 .links {
@@ -147,8 +147,26 @@ a {
   line-height: 5px;
 }
 
-@media (max-width: 700px) {
+/*@media (max-width: 700px) {
   h1 {
     font-size: 20px;
+    font-weight: 400;
+  }
+}*/
+
+@media (max-width: 570px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  h3 {
+    font-size: 4vw;
+    width: 100%;
+    margin: 1px;
+    border-radius: 0;
+  }
+
+  header {
+    flex-direction: column;
   }
 }

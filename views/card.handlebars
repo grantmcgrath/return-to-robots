@@ -4,17 +4,18 @@
 <head>
   <meta charset="utf-8">
   <title>{{name}}</title>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
 <body>
+  {{#robots}}
   <header id="header">
     <div class="title">
       <a href="/"><h1>Robos Directory</h1></a>
     </div>
     <div class="links">
-      <a href=""><h3>Looking 4 Work</h3></a>
-      <a href=""><h3>Currently Employed</h3></a>
+      <a href="/searching"><h3>Looking 4 Work</h3></a>
+      <a href="/employed"><h3>Currently Employed</h3></a>
     </div>
   </header>
 
@@ -25,47 +26,43 @@
 
     <div class="contactInfo">
       <h1 class="cardName">{{name}}</h1>
-      {{#address.city}}
+      {{#if address.city}}
         <p>{{address.city}}, {{address.country}} |
-      {{/address.city}}
-      {{^address.city}}
+      {{else}}
         <p>{{address.country}} |
-      {{/address.city}}
-        {{#job}}
+      {{/if}}
+      <!-- If a robot has a job, the job is listed. If not, then the robot is available for hire. -->
+        {{#if job}}
           {{job}}, {{company}}
-        {{/job}}
-        {{^job}}
+        {{else}}
         <span class="noJob">Available for hire</span>
-        {{/job}}
+        {{/if}}
       </p>
       <p class="cardContactInfo"><a href="mailto:{{email}}?Subject=Hello%20from%20{{name}}" target="_top">{{email}}</a> | {{phone}}</p>
     </div>
 
     <div class="eduSkills">
-      {{#university}}
+      <!-- Only displays Education if the robot has an education. -->
+      {{#if university}}
         <p class="university"><b>Education</b></p>
-      {{/university}}
-      {{^university}}
+      {{else}}
       <!-- If no education is listed, nothing is shown -->
-      {{/university}}
+      {{/if}}
       <p class="skills"><b>Skills</b></p>
     </div>
 
     <div class="eduSkillsDetails">
-      {{#university}}
+      {{#if university}}
         <p>{{university}}</p>
-      {{/university}}
-      {{^university}}
+      {{else}}
       <!-- If no education is listed, nothing is shown -->
-      {{/university}}
+      {{/if}}
       {{#skills}}
         <p class="skills">{{.}}</p>
       {{/skills}}
-      {{^skills}}
-      <!-- If no skills are listed, nothing is shown -->
-      {{/skills}}
     </div>
   </section>
+  {{/robots}}
 </body>
 
 </html>
